@@ -1,0 +1,6 @@
+model,accuracy,precision,recall,f1_score,params_M,train_time_min
+custom_cnn,,,,,,
+resnet18,,,,,,
+efficientnet_b0,,,,,,
+mobilenet_v3,,,,,,
+vit_b16,,,,,,
