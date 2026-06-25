@@ -51,16 +51,3 @@ def get_dataloaders(
     val_dl   = DataLoader(val_ds,   batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
 
     return train_dl, val_dl, full_ds_train.classes
-
-
-def get_test_loader(
-    root: Path,
-    test_dir: str,
-    batch_size: int = 32,
-    image_size: int = 224,
-    num_workers: int = 2,
-):
-    _, val_tf = get_transforms(image_size)
-    test_ds = datasets.ImageFolder(root / test_dir, transform=val_tf)
-    test_dl = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
-    return test_dl, test_ds.classes
