@@ -1,5 +1,7 @@
 from pathlib import Path
-from torch.utils.data import DataLoader
+
+import numpy as np
+from torch.utils.data import DataLoader, Subset
 from torchvision import datasets, transforms
 
 
@@ -23,15 +25,42 @@ def get_transforms(image_size: int = 224):
 
 def get_dataloaders(
     root: Path,
-    train_dir: str,
-    val_dir: str,
+    data_dir: str,
+    batch_size: int = 32,
+    image_size: int = 224,
+    train_ratio: float = 0.7,
+    seed: int = 42,
+    num_workers: int = 2,
+):
+    train_tf, val_tf = get_transforms(image_size)
+
+    full_ds_train = datasets.ImageFolder(root / data_dir, transform=train_tf)
+    full_ds_val   = datasets.ImageFolder(root / data_dir, transform=val_tf)
+
+    n = len(full_ds_train)
+    indices = list(range(n))
+    rng = np.random.RandomState(seed)
+    rng.shuffle(indices)
+    split = int(train_ratio * n)
+    train_idx, val_idx = indices[:split], indices[split:]
+
+    train_ds = Subset(full_ds_train, train_idx)
+    val_ds   = Subset(full_ds_val, val_idx)
+
+    train_dl = DataLoader(train_ds, batch_size=batch_size, shuffle=True,  num_workers=num_workers, pin_memory=True)
+    val_dl   = DataLoader(val_ds,   batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
+
+    return train_dl, val_dl, full_ds_train.classes
+
+
+def get_test_loader(
+    root: Path,
+    test_dir: str,
     batch_size: int = 32,
     image_size: int = 224,
     num_workers: int = 2,
 ):
-    train_tf, val_tf = get_transforms(image_size)
-    train_ds = datasets.ImageFolder(root / train_dir, transform=train_tf)
-    val_ds   = datasets.ImageFolder(root / val_dir,   transform=val_tf)
-    train_dl = DataLoader(train_ds, batch_size=batch_size, shuffle=True,  num_workers=num_workers, pin_memory=True)
-    val_dl   = DataLoader(val_ds,   batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
-    return train_dl, val_dl, train_ds.classes
+    _, val_tf = get_transforms(image_size)
+    test_ds = datasets.ImageFolder(root / test_dir, transform=val_tf)
+    test_dl = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
+    return test_dl, test_ds.classes
