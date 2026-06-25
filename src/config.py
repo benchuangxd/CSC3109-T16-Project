@@ -1,4 +1,4 @@
-DATA_DIR = "data/set 16"       # Full dataset -- split 70/30 into train/val
+DATA_DIR = "data/set 16"       # Full dataset -- split 70/30 within each class folder
 
 CLASS_NAMES = ["beach", "ferry_terminal", "harbor", "river"]
 NUM_CLASSES = 4

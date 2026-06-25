@@ -32,17 +32,24 @@ def get_dataloaders(
     seed: int = 42,
     num_workers: int = 2,
 ):
+    """Create train/validation loaders with a deterministic split per class folder."""
     train_tf, val_tf = get_transforms(image_size)
 
     full_ds_train = datasets.ImageFolder(root / data_dir, transform=train_tf)
     full_ds_val   = datasets.ImageFolder(root / data_dir, transform=val_tf)
 
-    n = len(full_ds_train)
-    indices = list(range(n))
+    # Stratified split inside each class folder under data/set 16, so
+    # beach/ferry_terminal/harbor/river each keep the same train/val ratio
+    # (e.g. 490 train / 210 val per class for TRAIN_RATIO = 0.7).
+    targets = np.array(full_ds_train.targets)
     rng = np.random.RandomState(seed)
-    rng.shuffle(indices)
-    split = int(train_ratio * n)
-    train_idx, val_idx = indices[:split], indices[split:]
+    train_idx, val_idx = [], []
+    for c in np.unique(targets):
+        cls_idx = np.where(targets == c)[0]
+        rng.shuffle(cls_idx)
+        split = int(round(train_ratio * len(cls_idx)))
+        train_idx += cls_idx[:split].tolist()
+        val_idx   += cls_idx[split:].tolist()
 
     train_ds = Subset(full_ds_train, train_idx)
     val_ds   = Subset(full_ds_val, val_idx)
