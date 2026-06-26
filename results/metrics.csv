@@ -2,5 +2,5 @@ model,accuracy,precision,recall,f1_score,params_M,train_time_min
 resnet18,,,,,,
 efficientnet_b0,,,,,,
 mobilenet_v3,,,,,,
-vit_b16,,,,,,
+vit_b16,1.0,1.0,1.0,1.0,,
 custom_cnn,0.944047619047619,0.9491033704812467,0.944047619047619,0.9424131580209704,,
