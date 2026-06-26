@@ -52,7 +52,7 @@ def plot_confusion_matrix(
     fig, axes = plt.subplots(1, 2, figsize=(13, 5))
     for ax, data, fmt, subtitle in [
         (axes[0], cm,      "d",    "Counts"),
-        (axes[1], cm_norm, ".2f",  "Normalised"),
+        (axes[1], cm_norm, ".3f",  "Normalised"),
     ]:
         sns.heatmap(
             data, annot=True, fmt=fmt, cmap="Blues",
