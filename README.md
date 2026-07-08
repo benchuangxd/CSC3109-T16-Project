@@ -25,11 +25,11 @@ Or click an **Open in Colab** badge below.
 | Notebook | Description | Open in Colab |
 |---|---|---|
 | `01_eda.ipynb` | Exploratory Data Analysis | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/01_eda.ipynb) |
-| `02_custom_cnn.ipynb` | Custom CNN (Member 1) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/02_custom_cnn.ipynb) |
-| `03_resnet18.ipynb` | ResNet-18 (Member 2) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/03_resnet18.ipynb) |
-| `04_efficientnet_b0.ipynb` | EfficientNet-B0 (Member 3) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/04_efficientnet_b0.ipynb) |
-| `05_mobilenet_v3.ipynb` | MobileNet V3 (Member 4) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/05_mobilenet_v3.ipynb) |
-| `06_vit_b16.ipynb` | ViT-B/16 (Member 5) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/06_vit_b16.ipynb) |
+| `02_custom_cnn.ipynb` | Custom CNN (Daniel) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/02_custom_cnn.ipynb) |
+| `03_resnet18.ipynb` | ResNet-18 (Han Sheng) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/03_resnet18.ipynb) |
+| `04_efficientnet_b0.ipynb` | EfficientNet-B0 (Haley) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/04_efficientnet_b0.ipynb) |
+| `05_mobilenet_v3.ipynb` | MobileNet V3 (Jocasta) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/05_mobilenet_v3.ipynb) |
+| `06_vit_b16.ipynb` | ViT-B/16 (Jun Hao) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/06_vit_b16.ipynb) |
 
 ## Project Structure
 
