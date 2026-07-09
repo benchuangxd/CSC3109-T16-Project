@@ -8,7 +8,7 @@ from torchvision import models, transforms
 from PIL import Image
 
 MODEL_DIR  = Path(__file__).parent / "model"
-MODEL_PATH = MODEL_DIR / "best_model.pth"
+MODEL_PATH = MODEL_DIR / "resnet18.pth"
 CLASSES_PATH = MODEL_DIR / "classes.json"
 IMAGE_SIZE = 224
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -20,8 +20,8 @@ NUM_CLASSES = len(CLASS_NAMES)
 
 @st.cache_resource
 def load_model():
-    model = models.vit_b_16(weights=None)
-    model.heads.head = nn.Linear(model.heads.head.in_features, NUM_CLASSES)
+    model = models.resnet18(weights=None)
+    model.fc = nn.Linear(model.fc.in_features, NUM_CLASSES)
     model.load_state_dict(torch.load(MODEL_PATH, map_location=DEVICE))
     model.to(DEVICE).eval()
     return model
@@ -57,7 +57,7 @@ uploaded = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
 
 if uploaded is not None:
     img = Image.open(uploaded).convert("RGB")
-    st.image(img, caption="Uploaded Image", use_container_width=True)
+    st.image(img, caption="Uploaded Image", width='stretch')
 
     with st.spinner("Classifying..."):
         label, confidence, all_probs = predict(img, model)

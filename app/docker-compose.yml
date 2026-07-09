@@ -1,0 +1,8 @@
+services:
+  classifier:
+    build: .
+    image: csc3109-t16:1.0
+    container_name: csc3109-t16-classifier
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
