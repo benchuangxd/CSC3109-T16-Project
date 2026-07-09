@@ -30,6 +30,7 @@ Or click an **Open in Colab** badge below.
 | `04_efficientnet_b0.ipynb` | EfficientNet-B0 (Haley) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/04_efficientnet_b0.ipynb) |
 | `05_mobilenet_v3.ipynb` | MobileNet V3 (Jocasta) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/05_mobilenet_v3.ipynb) |
 | `06_vit_b16.ipynb` | ViT-B/16 (Jun Hao) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/06_vit_b16.ipynb) |
+| `07_comparison.ipynb` | Model Comparison | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/benchuangxd/CSC3109-T16-Project/blob/main/notebooks/07_comparison.ipynb) |
 
 ## Project Structure
 
