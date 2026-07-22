@@ -40,7 +40,7 @@ CSC3109-T16-Project/
 ├── notebooks/      # One notebook per model + EDA
 ├── src/            # Shared Python modules (dataset, models, train, evaluate)
 ├── results/        # Saved models, confusion matrices, training curves
-├── app/            # FastAPI inference endpoint
+├── app/            # Streamlit inference app (Dockerized)
 └── report/         # Report notes and figures
 ```
 
@@ -54,9 +54,20 @@ CSC3109-T16-Project/
 | `05_mobilenet_v3.ipynb` | MobileNet V3 Small | ImageNet |
 | `06_vit_b16.ipynb` | ViT-B/16 | ImageNet |
 
-## Running the API
+## Running the App
 
 ```bash
-uvicorn app.main:app --reload
-# POST /predict  with an image file
+cd app
+pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+Open http://localhost:8501 and upload an image to see the prediction.
+
+Or run it containerised:
+
+```bash
+cd app
+docker build -t csc3109-t16:1.0 .
+docker run -p 8501:8501 csc3109-t16:1.0
 ```
